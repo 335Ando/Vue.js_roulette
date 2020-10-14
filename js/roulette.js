@@ -3,7 +3,8 @@ new Vue({
     data: {
         newName: '',
         resultName: '',
-        // timeoutId: 0,
+        timeoutId: 0,
+        inactive_class: 'inactive',
         names: []
     },
     methods: {
@@ -13,7 +14,8 @@ new Vue({
             }else{
                 this.names.push(this.newName);
                 this.newName= '';
-            }
+                this.inactive_class = '';
+            };
         },
         deleteName: function(index) {
             if(confirm('削除してもいいですか？')) {
@@ -21,16 +23,20 @@ new Vue({
             }
         },
         rouletteStart: function() {
+            if(this.inactive_class === 'inactive') {
+                return;
+            }else{
             this.resultName = this.names[Math.floor(Math.random() * this.names.length)];
             this.timeoutId = setTimeout(() => {
                 this.rouletteStart();
             },50);
+        }
         },
         rouletteStop: function() {
-            // clearTimeout(this.timeoutId);
+            window.clearTimeout(this.timeoutId);
         },
         rouletteReset: function() {
-            
+            this.names = "";
         }
 
     }

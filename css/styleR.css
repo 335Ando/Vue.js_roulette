@@ -98,3 +98,7 @@ user-select: none;
 .resultMove-move {
     transition: transform .5s;
 }
+
+[v-cloak] {
+    display: none;
+}

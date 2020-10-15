@@ -37,6 +37,7 @@ new Vue({
         },
         rouletteReset: function() {
             this.names = "";
+            this.resultName = "";
         }
 
     }

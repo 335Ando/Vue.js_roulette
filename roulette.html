@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8" />
-<title>猫町ファシリルーレット</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>猫町ファシリルーレット</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
 
-<link rel="stylesheet" href="css/styleR.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="css/styleR.css" />
+  </head>
+  <body>
     <div id="app" class="container">
-    <h1 class="title animated bounceIn">猫町ファシリルーレット</h1>
-    <form  v-on:submit.prevent="addName">
-    <label for="name">お名前を入力してください。</label>
-    <input id="name" type="text" v-model="newName" /><br />
-    <input type="submit" value="追加" />
-    </form>
-    <div class="nameField">
-  <transition-group tag="ul">
-        <li v-for="(name,index) in names" v-bind:key="name" class="listNone" v-cloak>{{name}}
-        <span v-on:click="deleteName(index)" class="command">[×]</span></li>
-   </transition-group>
-   </div>
-   <div class="roulette" v-cloak>
-      {{resultName}}
-   </div>
-   <section class="buttons">
-            <div id="start" v-bind:class="inactive_class" v-on:click="rouletteStart" >START</div>
-            <div id="stop" v-bind:class="inactive_class"  v-on:click="rouletteStop" >STOP</div>
-            <div id="reset" v-bind:class="inactive_class"  v-on:click="rouletteReset">RESET</div>
-          </section>
+      <h1 class="title animated bounceIn">猫町ファシリルーレット</h1>
+      <form v-on:submit.prevent="addName">
+        <label for="name">お名前を入力してください。</label>
+        <input id="name" type="text" v-model="newName" /><br />
+        <input type="submit" value="追加" />
+      </form>
+      <div class="nameField">
+        <transition-group tag="ul">
+          <li
+            v-for="(name,index) in names"
+            v-bind:key="name"
+            class="listNone"
+            v-cloak
+          >
+            {{name}}
+            <span v-on:click="deleteName(index)" class="command">[×]</span>
+          </li>
+        </transition-group>
+      </div>
+      <div class="roulette" v-cloak>{{resultName}}</div>
+      <section class="buttons">
+        <div
+          id="start"
+          v-bind:class="inactive_class"
+          v-on:click="rouletteStart"
+        >
+          START
+        </div>
+        <div id="stop" v-bind:class="inactive_class" v-on:click="rouletteStop">
+          STOP
+        </div>
+        <div
+          id="reset"
+          v-bind:class="inactive_class"
+          v-on:click="rouletteReset"
+        >
+          RESET
+        </div>
+      </section>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
- <script src="js/roulette.js"></script>
-
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+    <script src="js/roulette.js"></script>
+  </body>
 </html>
